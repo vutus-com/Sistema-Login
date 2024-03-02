@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title%}Document{%endblock%}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    {%block head%}{%endblock%}
+    <title>{% block title %}Document{% endblock %}</title> <!-- Define o título da página -->
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Inclui o CDN do Tailwind CSS para estilização -->
+    {% block head %}{% endblock %} <!-- Define um bloco para o cabeçalho, que pode ser substituído nos templates filhos -->
 </head>
-<body class="bg-cyan-400">
-    <nav class="bg-blue-900 h-16">
+<body class="bg-cyan-400"> <!-- Define a classe de fundo do corpo da página -->
+    <nav class="bg-blue-900 h-16"> <!-- Define a barra de navegação -->
         <ul class="flex flex-row justify-center items-center h-full">
             <li class="text-white text-2xl mx-auto bg-blue-500 px-3 py-1 rounded">
-                <a href="/">
+                <a href="/"> <!-- Link para a página de login -->
                     Login
                 </a>
             </li>
             <li class="text-white text-2xl mx-auto bg-blue-500 px-3 py-1 rounded">
-                <a href="/cadastro">
+                <a href="/cadastro"> <!-- Link para a página de cadastro -->
                     Cadastro
                 </a>
             </li>
         </ul>
     </nav>
-    {%block body%}{%endblock%}
+    {% block body %}{% endblock %} <!-- Define um bloco para o corpo da página, que pode ser substituído nos templates filhos -->
 </body>
 </html>

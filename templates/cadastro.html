@@ -1,23 +1,23 @@
-{% extends "template.html" %}
+{% extends "template.html" %} <!-- Estende o template.html -->
 
-{%block title%}
-Cadastro
-{%endblock%}
+{% block title %}
+Cadastro <!-- Define o título da página -->
+{% endblock %}
 
-{%block body%}
-<main class="bg-teal-400 w-4/5 mx-auto my-20 py-20">
-    <form action="/cadastro-in" method="post">
-        <div class="flex flex-col justify-center items-center mb-5">
-            <label for="email" class="text-white text-2xl">Email</label>
-            <input type="email" name="email" id="email" class="bg-white rounded w-64 h-10" required>
+{% block body %} <!-- Define o corpo da página -->
+<main class="bg-teal-400 w-4/5 mx-auto my-20 py-20"> <!-- Define a seção principal da página -->
+    <form action="/cadastro-in" method="post"> <!-- Formulário para cadastro -->
+        <div class="flex flex-col justify-center items-center mb-5"> <!-- Container para o campo de email -->
+            <label for="email" class="text-white text-2xl">Email</label> <!-- Label para o campo de email -->
+            <input type="email" name="email" id="email" class="bg-white rounded w-64 h-10" required> <!-- Campo de email -->
         </div>
-        <div class="flex flex-col justify-center items-center mb-5">
-            <label for="password" class="text-white text-2xl">Senha</label>
-            <input type="password" name="password" id="password" class="bg-white rounded w-64 h-10" required>
+        <div class="flex flex-col justify-center items-center mb-5"> <!-- Container para o campo de senha -->
+            <label for="password" class="text-white text-2xl">Senha</label> <!-- Label para o campo de senha -->
+            <input type="password" name="password" id="password" class="bg-white rounded w-64 h-10" required> <!-- Campo de senha -->
         </div>
-        <div class="flex flex-col justify-center items-center">
-            <button type="submit" class="bg-blue-500 text-white rounded w-64 h-10">Cadastrar</button>
+        <div class="flex flex-col justify-center items-center"> <!-- Container para o botão de enviar -->
+            <button type="submit" class="bg-blue-500 text-white rounded w-64 h-10">Cadastrar</button> <!-- Botão de enviar -->
         </div>
     </form>
 </main>
-{%endblock%}
+{% endblock %}
