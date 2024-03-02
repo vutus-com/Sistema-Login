@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Document{%endblock%}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {%block head%}{%endblock%}
+</head>
+<body class="bg-cyan-400">
+    <nav class="bg-blue-900 h-16">
+        <ul class="flex flex-row justify-center items-center h-full">
+            <li class="text-white text-2xl mx-auto bg-blue-500 px-3 py-1 rounded">
+                <a href="/">
+                    Login
+                </a>
+            </li>
+            <li class="text-white text-2xl mx-auto bg-blue-500 px-3 py-1 rounded">
+                <a href="/cadastro">
+                    Cadastro
+                </a>
+            </li>
+        </ul>
+    </nav>
+    {%block body%}{%endblock%}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "template.html" %}
+
+{%block title%}
+Cadastro
+{%endblock%}
+
+{%block body%}
+<main class="bg-teal-400 w-4/5 mx-auto my-20 py-20">
+    <form action="/cadastro-in" method="post">
+        <div class="flex flex-col justify-center items-center mb-5">
+            <label for="email" class="text-white text-2xl">Email</label>
+            <input type="email" name="email" id="email" class="bg-white rounded w-64 h-10" required>
+        </div>
+        <div class="flex flex-col justify-center items-center mb-5">
+            <label for="password" class="text-white text-2xl">Senha</label>
+            <input type="password" name="password" id="password" class="bg-white rounded w-64 h-10" required>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <button type="submit" class="bg-blue-500 text-white rounded w-64 h-10">Cadastrar</button>
+        </div>
+    </form>
+</main>
+{%endblock%}
