@@ -30,6 +30,7 @@ class UserIn(Schema):
 class UserOut(Schema):
     id = Integer()
     email = String()
+    password = String()
 
 # Rota para cadastrar um usuário
 @app.post('/user')
@@ -41,8 +42,8 @@ def cadastrar(json_data):
         db.session.add(user)
         db.session.commit()
         return user, 201  # Retorna o usuário cadastrado com o código de status HTTP 201 (Created)
-    except:
-        return abort(400, message="Email já cadastrado")  # Aborta a requisição com o código de status HTTP 400 (Bad Request)
+    except Exception as e:
+        return abort(400, message=f"Email já cadastrado, {e}")  # Aborta a requisição com o código de status HTTP 400 (Bad Request)
 
 # Rota para obter informações de um usuário pelo email
 @app.get('/user/<email>')

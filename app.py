@@ -7,6 +7,19 @@ app = Flask(__name__)
 def login():
     return render_template('login.html')  # Rota para a página de login
 
+@app.route("/login-in", methods=["POST"])
+def login_in():
+    email = request.form["email"]
+    response = requests.get(f"http://localhost:5001/user/{email}")  # Envia uma requisição GET para o servidor de login
+    try:
+        email = response.json()["email"]
+        print(f"Usuário {email} encontrado!")  # Imprime mensagem se o usuário for encontrado
+        return redirect(url_for('login'))  # Redireciona para a página de login após o login bem-sucedido
+    except:
+        print("Usuário não encontrado")  # Imprime mensagem se o usuário não for encontrado
+        return redirect(url_for('cadastro'))  # Redireciona para a página de cadastro se o usuário não for encontrado
+
+
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')  # Rota para a página de cadastro
@@ -28,17 +41,6 @@ def cadastro_in():
         print("Email já cadastrado")  # Imprime mensagem se o email já estiver cadastrado
         return redirect(url_for('cadastro'))  # Redireciona de volta para a página de cadastro em caso de falha no cadastro
 
-@app.route("/login-in", methods=["POST"])
-def login_in():
-    email = request.form["email"]
-    response = requests.get(f"http://localhost:5001/user/{email}")  # Envia uma requisição GET para o servidor de login
-    try:
-        email = response.json()["email"]
-        print(f"Usuário {email} encontrado!")  # Imprime mensagem se o usuário for encontrado
-        return redirect(url_for('login'))  # Redireciona para a página de login após o login bem-sucedido
-    except:
-        print("Usuário não encontrado")  # Imprime mensagem se o usuário não for encontrado
-        return redirect(url_for('cadastro'))  # Redireciona para a página de cadastro se o usuário não for encontrado
 
 if __name__ == '__main__':
     app.run(debug=True)  # Executa o aplicativo Flask em modo de depuração
