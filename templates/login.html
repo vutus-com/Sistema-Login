@@ -1,23 +1,35 @@
-{% extends "template.html" %} <!-- Estende o template.html -->
+<!-- Estende o template.html -->
+{% extends "template.html" %}
 
 <!-- Define o título da página -->
 {% block title %}
 Login 
 {% endblock %}
 
-{% block body %} <!-- Define o corpo da página -->
-<main class="bg-teal-400 w-4/5 mx-auto my-20 py-20"> <!-- Define a seção principal da página -->
-    <form action="/login-in" method="post"> <!-- Formulário para login -->
-        <div class="flex flex-col justify-center items-center mb-5"> <!-- Container para o campo de email -->
-            <label for="email" class="text-white text-2xl">Email</label> <!-- Label para o campo de email -->
-            <input type="email" name="email" id="email" class="bg-white rounded w-64 h-10" required> <!-- Campo de email -->
+<!-- Define o corpo da página -->
+{% block body %}
+<!-- Define a seção principal da página -->
+<main class="bg-teal-400 w-4/5 mx-auto my-20 py-20">
+    <!-- Formulário para login -->
+    <form action="/login-in" method="post">
+        <!-- Container para o campo de email -->
+        <div class="flex flex-col justify-center items-center mb-5">
+            <!-- Label para o campo de email -->
+            <label for="email" class="text-white text-2xl">Email</label>
+            <!-- Campo de email -->
+            <input type="email" name="email" id="email" class="bg-white rounded w-64 h-10" required>
         </div>
-        <div class="flex flex-col justify-center items-center mb-5"> <!-- Container para o campo de senha -->
-            <label for="password" class="text-white text-2xl">Senha</label> <!-- Label para o campo de senha -->
-            <input type="password" name="password" id="password" class="bg-white rounded w-64 h-10" required> <!-- Campo de senha -->
+        <!-- Container para o campo de senha -->
+        <div class="flex flex-col justify-center items-center mb-5">
+            <!-- Label para o campo de senha -->
+            <label for="password" class="text-white text-2xl">Senha</label>
+            <!-- Campo de senha -->
+            <input type="password" name="password" id="password" class="bg-white rounded w-64 h-10" required>
         </div>
-        <div class="flex flex-col justify-center items-center"> <!-- Container para o botão de enviar -->
-            <button type="submit" class="bg-blue-500 text-white rounded w-64 h-10">Entrar</button> <!-- Botão de enviar -->
+        <!-- Container para o botão de enviar -->
+        <div class="flex flex-col justify-center items-center">
+            <!-- Botão de enviar -->
+            <button type="submit" class="bg-blue-500 text-white rounded w-64 h-10">Entrar</button>
         </div>
     </form>
 </main>

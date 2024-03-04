@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Document{% endblock %}</title> <!-- Define o título da página -->
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Inclui o CDN do Tailwind CSS para estilização -->
-    {% block head %}{% endblock %} <!-- Define um bloco para o cabeçalho, que pode ser substituído nos templates filhos -->
+    <!-- Define o título da página -->
+    <title>{% block title %}Document{% endblock %}</title>
+    <!-- Inclui o CDN do Tailwind CSS para estilização -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Define um bloco para o cabeçalho, que pode ser substituído nos templates filhos -->
+    {% block head %}{% endblock %}
 </head>
-<body class="bg-cyan-400"> <!-- Define a classe de fundo do corpo da página -->
-    <nav class="bg-blue-900 h-16"> <!-- Define a barra de navegação -->
+<body class="bg-cyan-400">
+    <!-- Define a barra de navegação -->
+    <nav class="bg-blue-900 h-16">
         <ul class="flex flex-row justify-center items-center h-full">
             <li class="text-white text-2xl mx-auto bg-blue-500 px-3 py-1 rounded">
-                <a href="/"> <!-- Link para a página de login -->
+                <!-- Link para a página de login -->
+                <a href="/">
                     Login
                 </a>
             </li>
             <li class="text-white text-2xl mx-auto bg-blue-500 px-3 py-1 rounded">
-                <a href="/cadastro"> <!-- Link para a página de cadastro -->
+                <!-- Link para a página de cadastro -->
+                <a href="/cadastro">
                     Cadastro
                 </a>
             </li>
         </ul>
     </nav>
-    {% block body %}{% endblock %} <!-- Define um bloco para o corpo da página, que pode ser substituído nos templates filhos -->
+    <!-- Define um bloco para o corpo da página, que pode ser substituído nos templates filhos -->
+    {% block body %}{% endblock %}
 </body>
 </html>
