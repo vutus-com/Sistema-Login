@@ -5,32 +5,33 @@ from apiflask.validators import Length
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-app = APIFlask(__name__)  # Cria uma instância da aplicação Flask usando APIFlask
+from flask_httpauth import HTTPBasicAuth
 
-# Configurações do banco de dados SQLite
+app = APIFlask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Inicializações do SQLAlchemy e do Flask-Migrate
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# Definição do modelo de usuário
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    email = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
+auth = HTTPBasicAuth()
 
-# Esquema para entrada de dados do usuário
+# Esquema para validação de entrada de dados do usuário
 class UserIn(Schema):
-    email = String(required=True, validate=Length(0, 80))
-    password = String(required=True, validate=Length(0, 120))
+    email = String(required=True, validate=Length(10, 50))
+    password = String(required=True, validate=Length(8, 24))
 
-# Esquema para saída de dados do usuário
+# Esquema para formatação de saída de dados do usuário
 class UserOut(Schema):
     id = Integer()
     email = String()
     password = String()
+
+# Modelo de usuário para o SQLAlchemy
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    email = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
 
 # Rota para cadastrar um usuário
 @app.post('/user')
@@ -41,9 +42,9 @@ def cadastrar(json_data):
         user = User(email=json_data['email'], password=json_data['password'])
         db.session.add(user)
         db.session.commit()
-        return user, 201  # Retorna o usuário cadastrado com o código de status HTTP 201 (Created)
+        return user, 201
     except Exception as e:
-        return abort(400, message=f"Email já cadastrado, {e}")  # Aborta a requisição com o código de status HTTP 400 (Bad Request)
+        return abort(400, message=f"Email já cadastrado,\n {e}")
 
 # Rota para obter informações de um usuário pelo email
 @app.get('/user/<email>')
@@ -51,9 +52,16 @@ def cadastrar(json_data):
 def get_user(email):
     user = User.query.filter_by(email=email).first()
     if user is None:
-        return abort(404, message="Usuário não encontrado")  # Aborta a requisição com o código de status HTTP 404 (Not Found) se o usuário não for encontrado
-    return user  # Retorna as informações do usuário
+        return abort(404, message="Usuário não encontrado")
+    return user, 200
 
-# Executa o aplicativo Flask em modo de depuração na porta 5001
+# Rota para reiniciar o banco de dados
+@app.get('/reset-db')
+@auth.login_required
+def reset_db():
+    db.drop_all()
+    db.create_all()
+    return "Banco de dados reiniciado com sucesso", 200
+
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
