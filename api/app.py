@@ -16,6 +16,12 @@ migrate = Migrate(app, db)
 
 auth = HTTPBasicAuth()
 
+@auth.verify_password
+def verify_password(username, password):
+    if username == 'admin' and password == 'admin':
+        return True
+    return False
+
 # Esquema para validação de entrada de dados do usuário
 class UserIn(Schema):
     email = String(required=True, validate=Length(10, 50))

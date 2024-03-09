@@ -27,8 +27,12 @@ def login():
 @app.route("/login-in", methods=["POST"])
 def login_in():
     email = request.form["email"]
-    # Faz uma requisição para verificar o usuário
-    login_response = requests.get(f"http://localhost:5001/user/{email}")
+
+    try:
+        # Faz uma requisição para verificar o usuário
+        login_response = requests.get(f"http://localhost:5001/user/{email}")
+    except Exception as e:
+        return redirect(url_for('login'))
 
     try:
         email = login_response.json()["email"]
