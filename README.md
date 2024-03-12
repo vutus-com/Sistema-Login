@@ -1,76 +1,91 @@
-# Configuração do Projeto
+# 🚀 Configuração do Projeto
 
-Este guia passo a passo irá ajudá-lo a configurar e executar o projeto.
+## 📚 Explicações
+Este projeto foi criado com o objetivo de compartilhar conhecimentos sobre Flask. Ele inclui a criação de uma página de login e cadastro de usuários, uma API para manipulação de dados, e utiliza SQLite para armazenar os dados dos usuários. Para estilização, foi usado o framework TailwindCSS.
 
-## Pré-requisitos
+Além disso, o projeto explora conceitos de arquitetura de software, como MVC e Blueprints. Para demonstrar a diferença entre eles, foram criadas três branches paralelas:
 
-Certifique-se de ter o Python e o pip instalados em seu sistema.
+- [Blueprint](https://github.com/GetulioLT/Sistema-Login/tree/blueprints)
+- [MVC](https://github.com/GetulioLT/Sistema-Login/tree/mvc)
+- [MVC-Blueprint](https://github.com/GetulioLT/Sistema-Login/tree/mvc-blueprint)
 
-## 1. Criação do Ambiente Virtual
+Cada branch tem o objetivo de mostrar uma abordagem diferente de arquitetura e organização de código.
 
-Primeiro, vamos criar um ambiente virtual para isolar as dependências do nosso projeto. No terminal, execute o seguinte comando:
+O guia a seguir irá ajudá-lo a configurar e testar o projeto em sua máquina.
+
+## 🛠️ Pré-requisitos
+Certifique-se de ter o Python, pip e o git instalados em seu sistema.
+
+## 📥 Download do Projeto
+Primeiro, com o git instalado, você pode clonar o projeto com o seguinte comando:
 
 ```bash
-py -m venv venv
+git clone https://github.com/GetulioLT/Sistema-Login.git
 ```
 
-## 2. Ativação do Ambiente Virtual
-
-Agora, vamos ativar o ambiente virtual com o seguinte comando:
+## 🌐 Criação e Ativação do Ambiente Virtual
+    1. Com o projeto clonado, abra o terminal e navegue até a pasta do projeto. Em seguida, crie um ambiente virtual com o seguinte comando (substitua "version" pela versão do Python que você está utilizando):
 
 ```bash
-venv\Scripts\activate
+python -version -m venv venv
+```
+    2. Ative o ambiente virtual:
+
+```bash
+venv/bin/activate
 ```
 
-## 3. Instalação das Dependências
-
-Com o ambiente virtual ativado, podemos instalar as dependências necessárias para o projeto. As dependências estão listadas no arquivo requirements.txt. Para instalá-las, execute o seguinte comando:
+## 📦 Instalação das Dependências
+Com o ambiente virtual ativado, instale as dependências do projeto:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 4. Configuração do Banco de Dados
-
-Vamos configurar o banco de dados. Navegue até a pasta api e execute os seguintes comandos:
+## 🗄️ Configuração do Banco de Dados
+Navegue até a pasta api e execute os seguintes comandos:
 
 ```bash
-cd api
 flask db init
 flask db migrate -m "Initial migration."
 flask db upgrade
 ```
 
-## 5. Execução da API
-
-Para executar a API, você precisará executar o arquivo app.py na pasta api. Certifique-se de fazer isso em um terminal separado. Aqui está o comando:
+## 🚀 Execução da API e do Frontend
+    1. Com o banco de dados configurado, execute a API:
 
 ```bash
 cd api
 python app.py
 ```
 
-## 6. Execução do Frontend
-
-Para executar o frontend, você precisará executar o arquivo app.py na pasta raiz do projeto. Faça isso em um terminal diferente do que você usou para a API. Aqui está o comando:
+    2. Com a API em execução, abra um novo terminal, navegue até a pasta raiz e execute o frontend:
 
 ```bash
 python app.py
 ```
 
-## 7. Acessando a Aplicação
+## 🌐 Acesso ao Sistema e à API
 
-Agora que a API e o frontend estão em execução, você pode acessar a aplicação em seu navegador. Abra o seguinte link:
+Com a API e o Frontend em execução, você pode acessar:
+
+- O sistema de login e cadastro através do seguinte endereço:
 
 ```bash
 http://localhost:5000
 ```
 
-## Licença
+- A API através do seguinte endereço:
 
-Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes.
+```bash
+http://localhost:5001
+```
 
-## Autor
+## 📜 Licença
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE.md) para obter detalhes.
 
-- **Getulio Vagner** - GetulioLT(github)
+## 👨‍💻 Autor
+Feito por Getulio Vagner Miranda Santos. 
+- GitHub: [GetulioLT](https://github.com/GetulioLT)
+- LinkedIn: [Getulio Vagner](https://www.linkedin.com/in/getulio-vagner-117341186/)
 
