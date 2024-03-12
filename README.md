@@ -24,12 +24,12 @@ git clone https://github.com/GetulioLT/Sistema-Login.git
 ```
 
 ## 🌐 Criação e Ativação do Ambiente Virtual
-    1. Com o projeto clonado, abra o terminal e navegue até a pasta do projeto. Em seguida, crie um ambiente virtual com o seguinte comando (substitua "version" pela versão do Python que você está utilizando):
+1. Com o projeto clonado, abra o terminal e navegue até a pasta do projeto. Em seguida, crie um ambiente virtual com o seguinte comando (substitua "version" pela versão do Python que você está utilizando):
 
 ```bash
 python -version -m venv venv
 ```
-    2. Ative o ambiente virtual:
+2. Ative o ambiente virtual:
 
 ```bash
 venv/bin/activate
@@ -52,14 +52,14 @@ flask db upgrade
 ```
 
 ## 🚀 Execução da API e do Frontend
-    1. Com o banco de dados configurado, execute a API:
+1. Com o banco de dados configurado, execute a API:
 
 ```bash
 cd api
 python app.py
 ```
 
-    2. Com a API em execução, abra um novo terminal, navegue até a pasta raiz e execute o frontend:
+2. Com a API em execução, abra um novo terminal, navegue até a pasta raiz e execute o frontend:
 
 ```bash
 python app.py
