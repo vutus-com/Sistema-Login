@@ -62,7 +62,7 @@ def cadastro_in():
 
     # Fazendo uma requisição POST para cadastrar o usuário
     response = requests.post("http://localhost:5001/user", json=data)
-    if response.status_code == 200:
+    if response.status_code == 201:
         return redirect(url_for('login'))
     else:
         return redirect(url_for('cadastro'))
