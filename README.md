@@ -7,7 +7,7 @@ Além disso, o projeto explora conceitos de arquitetura de software, como MVC e 
 
 - [Blueprint](https://github.com/GetulioLT/Sistema-Login/tree/blueprints)
 - [MVC](https://github.com/GetulioLT/Sistema-Login/tree/mvc)
-- [MVC-Blueprint](https://github.com/GetulioLT/Sistema-Login/tree/mvc-blueprint)
+- [MVC-Blueprint](https://github.com/GetulioLT/Sistema-Login/tree/mvc-blueprints)
 
 Cada branch tem o objetivo de mostrar uma abordagem diferente de arquitetura e organização de código.
 
