@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.secret_key = "jason"
 
 # Criando uma instância da classe LoginManager
+
 login_manager = LoginManager()
 
 # Inicializando o gerenciador de login com a aplicação
